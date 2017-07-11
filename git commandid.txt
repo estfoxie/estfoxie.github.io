@@ -1,0 +1,20 @@
+https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
+
+
+#projekti kaustas
+	git init
+
+
+#lisab kõimfailid commiti
+	git add .
+
+#commitimine ja commiti nimetamine
+	git commit -m "First commit"
+
+#githubi repository lisamine
+	git remote add origin *remote repository URL*
+#kontroll
+	git remote -v
+
+ćommiti pushimine serverisse
+	git push origin master
