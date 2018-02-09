@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+    	body {
+			  padding-top: 5rem;
+			}
+			.container {
+			  padding: 3rem 1.5rem;
+			  text-align: center;
+			}
+	</style>
+    <title>Hi</title>
+  </head>
+  <body>
+  	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  		<a class="navbar-brand" href="#" style="color:rgb(255, 127, 0);">HOBIzone Trenniõhtu</a>
+  	</nav>
+    <main role="main" class="container">
+      <div class="starter-template">
+
+		<div class="card border-light bg-lught text-center mx-auto" style="width:30rem;">
+			<div class="card-header">
+				<button type="button" class="btn btn-warning btn-lg">
+					<h1 id="nowDriving">Sõidavad </h1>
+				</button>
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">Trenni järjekord</h5>
+				<p class="card-text">
+					:00 kuni :25 	SlowMo<br>
+					:25 kuni :35 	Kiired<br>
+					:35 kuni :00 	Algajad<br>
+				</p>
+				<button type="button" class="btn btn-warning btn-lg"><h1 id="timeNow">Kell</h1></button>
+			</div>
+			<div class="card-footer text-muted">Have fun!</div>
+		</div>
+      
+      </div>
+    </main><!-- /.container -->
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+	    $(document).ready(function(){
+
+	    	function addZero(i) {
+				if (i < 10) {
+					i = "0" + i;
+				}
+				return i;
+			}
+
+			function doStuff() {
+				var d,h,m,s;
+				d = new Date();
+				h = addZero(d.getHours());
+				m = addZero(d.getMinutes());
+				s = addZero(d.getSeconds());
+				console.log(h+" : "+m+" : "+s);
+				document.getElementById("timeNow").innerHTML=(h+" : "+m+" : "+s);
+				if(m>=0 && m<25) {
+					document.body.style.backgroundColor = '#e51400';
+					document.getElementById("nowDriving").innerHTML="Praegu rajal SlowMo";
+				} else if (m>=25 && m<35) {
+					document.body.style.backgroundColor = '#e3c800';
+					document.getElementById("nowDriving").innerHTML="Praegu rajal kiired";
+				} else if (m>=35 && m<=59) {
+					document.body.style.backgroundColor = '#60a917';
+					document.getElementById("nowDriving").innerHTML="Praegu rajal algajad";
+				} else {alert("Katki"); }
+			}
+			
+			//Call it when time is true
+			setInterval(function() { doStuff(); }, 1000);
+		});
+    </script>
+  </body>
+</html>
