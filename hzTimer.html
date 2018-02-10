@@ -14,32 +14,50 @@
 			  padding: 3rem 1.5rem;
 			  text-align: center;
 			}
+			#navButton {
+				padding-right: 1rem;
+			}
 	</style>
     <title>Hi</title>
   </head>
   <body>
-  	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  		<a class="navbar-brand" href="#" style="color:rgb(255, 127, 0);">HOBIzone Trenniõhtu</a>
+  	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  		<a class="navbar-brand" href="#" style="color:rgb(255, 127, 0);"><h4>HOBIzone Trenniõhtu</h4></a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  	</button>
+	  	<div class="collapse navbar-collapse" id="navbarNav">
+	  		<ul class="nav navbar-nav">
+			  <li id="navButton" class="nav-item">
+			    <button type="button" style="background-color:#e51400;" class="btn btn-danger btn-lg">
+					<h3>:00 kuni :25 SlowMo</h3>
+				</button>
+			  </li>
+			  <li id="navButton" class="nav-item">
+			    <button type="button" class="btn btn-warning btn-lg">
+					<h3>:25 kuni :35 Kiired </h3>
+				</button>
+			  </li>
+			  <li id="navButton" class="nav-item">
+			    <button type="button" class="btn btn-success btn-lg">
+					<h3>:35 kuni :00 Algajad </h3>
+				</button>
+			  </li>
+			</ul>
+		</div>
   	</nav>
     <main role="main" class="container">
       <div class="starter-template">
 
 		<div class="card border-light bg-lught text-center mx-auto" style="width:30rem;">
 			<div class="card-header">
-				<button type="button" class="btn btn-warning btn-lg">
+				<button type="button" class="btn btn-light btn-lg">
 					<h1 id="nowDriving">Sõidavad </h1>
 				</button>
 			</div>
 			<div class="card-body">
-				<h5 class="card-title">Trenni järjekord</h5>
-				<p class="card-text">
-					:00 kuni :25 	SlowMo<br>
-					:25 kuni :35 	Kiired<br>
-					:35 kuni :00 	Algajad<br>
-				</p>
-				<button type="button" class="btn btn-warning btn-lg"><h1 id="timeNow">Kell</h1></button>
+				<button type="button" class="btn btn-light btn-lg"><h1 id="timeNow">Kell</h1></button>
 			</div>
-			<div class="card-footer text-muted">Have fun!</div>
 		</div>
       
       </div>
@@ -53,7 +71,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>
 	    $(document).ready(function(){
-
 	    	function addZero(i) {
 				if (i < 10) {
 					i = "0" + i;
@@ -67,21 +84,20 @@
 				h = addZero(d.getHours());
 				m = addZero(d.getMinutes());
 				s = addZero(d.getSeconds());
-				console.log(h+" : "+m+" : "+s);
+				//console.log(h+" : "+m+" : "+s);
 				document.getElementById("timeNow").innerHTML=(h+" : "+m+" : "+s);
 				if(m>=0 && m<25) {
 					document.body.style.backgroundColor = '#e51400';
 					document.getElementById("nowDriving").innerHTML="Praegu rajal : SlowMo";
 				} else if (m>=25 && m<35) {
-					document.body.style.backgroundColor = '#e3c800';
+					document.body.style.backgroundColor = '#ffc107';
 					document.getElementById("nowDriving").innerHTML="Praegu rajal : Kiired";
 				} else if (m>=35 && m<=59) {
-					document.body.style.backgroundColor = '#60a917';
+					document.body.style.backgroundColor = '#28a745';
 					document.getElementById("nowDriving").innerHTML="Praegu rajal : Algajad";
 				} else {alert("Katki"); }
 			}
 			
-			//Call it when time is true
 			setInterval(function() { doStuff(); }, 1000);
 		});
     </script>
