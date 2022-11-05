@@ -33,18 +33,33 @@
   	<nav class="navbar navbar-dark bg-dark fixed-top justify-content-center">
   		<ul class="nav">
 		  <li id="navButton" class="nav-item">
-		    <button type="button" style="background-color:#e51400;" class="btn btn-danger btn-lg">
-				<h3>:00 kuni :25 SlowMo</h3>
+		    <button type="button" class="btn btn-primary">
+				<h4>:00 kuni :10 JunLiiga</h4>
 			</button>
 		  </li>
 		  <li id="navButton" class="nav-item">
-		    <button type="button" class="btn btn-warning btn-lg">
-				<h3>:25 kuni :35 Kiired </h3>
+		    <button type="button" class="btn btn-success">
+				<h4>:10 kuni :20 2WD / 4WD</h4>
 			</button>
 		  </li>
 		  <li id="navButton" class="nav-item">
-		    <button type="button" class="btn btn-success btn-lg">
-				<h3>:35 kuni :00 Algajad </h3>
+		    <button type="button" class="btn btn-warning">
+				<h4>:20 kuni :30 Top 6</h4>
+			</button>
+		  </li>
+		  <li id="navButton" class="nav-item">
+		    <button type="button" class="btn btn-success">
+				<h4>:30 kuni :40 2WD / 4WD</h4>
+			</button>
+		  </li>
+		  <li id="navButton" class="nav-item">
+		    <button type="button" class="btn btn-warning">
+				<h4>:40 kuni :50 Top6</h4>
+			</button>
+		  </li>
+		  <li id="navButton" class="nav-item">
+		    <button type="button" class="btn btn-success">
+				<h4>:50 kuni :00 2WD / 4WD</h4>
 			</button>
 		  </li>
 		</ul>
@@ -52,7 +67,7 @@
     <main role="main" class="container">
       <div class="starter-template">
 
-		<div class="card border-light bg-lught text-center mx-auto" style="width:30rem;">
+		<div class="card border-light bg-lught text-center mx-auto" >
 			<div class="card-header">
 				<button type="button" class="btn btn-light btn-lg">
 					<h1 id="nowDriving">Sõidavad </h1>
@@ -98,15 +113,24 @@
 				s = addZero(d.getSeconds());
 				//console.log(h+" : "+m+" : "+s);
 				document.getElementById("timeNow").innerHTML=(h+" : "+m+" : "+s);
-				if(m>=0 && m<25) {
-					document.body.style.backgroundColor = '#e51400';
-					document.getElementById("nowDriving").innerHTML="Praegu rajal : SlowMo";
-				} else if (m>=25 && m<35) {
-					document.body.style.backgroundColor = '#ffc107';
-					document.getElementById("nowDriving").innerHTML="Praegu rajal : Kiired";
-				} else if (m>=35 && m<=59) {
+				if(m>=0 && m<10) {
+					document.body.style.backgroundColor = '##007bff';
+					document.getElementById("nowDriving").innerHTML="Praegu rajal : Juunior Liiga";
+				} else if (m>=10 && m<20) {
 					document.body.style.backgroundColor = '#28a745';
-					document.getElementById("nowDriving").innerHTML="Praegu rajal : Algajad";
+					document.getElementById("nowDriving").innerHTML="Praegu rajal : 2WD ja 4WD";
+				} else if (m>=20 && m<=30) {
+					document.body.style.backgroundColor = '#ffc107';
+					document.getElementById("nowDriving").innerHTML="Praegu rajal : Top6";
+				} else if (m>=30 && m<=40) {
+					document.body.style.backgroundColor = '#28a745';
+					document.getElementById("nowDriving").innerHTML="Praegu rajal : 2WD ja 4WD";
+				} else if (m>=40 && m<=50) {
+					document.body.style.backgroundColor = '#ffc107';
+					document.getElementById("nowDriving").innerHTML="Praegu rajal : Top6";
+				} else if (m>=50 && m<=59) {
+					document.body.style.backgroundColor = '#28a745';
+					document.getElementById("nowDriving").innerHTML="Praegu rajal : 2WD ja 4WD";
 				} else {alert("Katki"); }
 			}
 			
